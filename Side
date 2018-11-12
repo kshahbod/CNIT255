@@ -1,0 +1,16 @@
+public class Sides extends Meal{
+    
+    public String SideItem;
+    
+    public Side (String side) {
+    this.SideItem = side;
+    }
+    
+    public void setSide(String side){
+		this.SideItem = side;
+    }
+    
+    public String getDessert(){
+        return SideItem;
+    }
+}
