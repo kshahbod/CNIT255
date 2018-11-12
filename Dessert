@@ -1,4 +1,4 @@
-public class Dessert {
+public class Dessert extends Meal{
     
     public String DessertItem;
     
