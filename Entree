@@ -1,1 +1,16 @@
-
+public class Entree {
+    
+    public String EntreeItem;
+    
+    public Entree (String entree) {
+    this.EntreeItem = entree;
+    }
+    
+    public void setEntree(String entree){
+        this.EntreeItem = entree;
+    }
+    
+    public String getEntree(){
+        return EntreeItem;
+    }
+}
