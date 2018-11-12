@@ -1,0 +1,16 @@
+public class Dessert {
+    
+    public String DessertItem;
+    
+    public Dessert (String dessert) {
+    this.DessertItem = dessert;
+    }
+    
+    public void setDessert(String dessert){
+        this.DessertItem = dessert;
+    }
+    
+    public String getDessert(){
+        return DessertItem;
+    }
+}
