@@ -1,0 +1,25 @@
+public class Drink {
+    public boolean Alcoholic;
+    public boolean nonAlcoholic;
+    
+    public Drink (boolean Alc, boolean nonAlc) {
+    this.Alcoholic = Alc;
+    this.nonAlcoholic = nonAlc;
+    }
+    
+    public void setAlcohol(boolean Alc){
+        this.Alcoholic = Alc;
+    }
+    
+    public boolean getAlcohol(){
+        return Alcoholic;
+    }
+    
+    public void setNonAlcoholic(boolean nonAlcoholic){
+        this.nonAlcoholic = nonAlcoholic;
+    }
+    
+    public boolean getNonAlcoholic(){
+        return nonAlcoholic;
+    }
+}
