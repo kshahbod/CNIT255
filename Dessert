@@ -1,16 +1,16 @@
 public class Dessert extends Meal{
-    
-    public String DessertItem;
-    
-    public Dessert (String dessert) {
-    this.DessertItem = dessert;
+
+    protected String dessertItem;
+
+    public Dessert (String dessertItem) {
+        this.dessertItem = dessertItem;
     }
-    
-    public void setDessert(String dessert){
-        this.DessertItem = dessert;
+
+    public void setDessert(String dessertItem){
+        this.dessertItem = dessertItem;
     }
-    
+
     public String getDessert(){
-        return DessertItem;
+        return dessertItem;
     }
 }
