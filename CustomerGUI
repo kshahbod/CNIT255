@@ -8,8 +8,10 @@
  *
  * @author psiec
  */
-public class CustomerGUI extends javax.swing.JFrame {
-
+public class CustomerGUI extends javax.swing.JFrame{// implements Randomize{
+    //Guest newGuest = new Guest("", "", ""); //gender, age, lactose
+    //Meal newMeal = new Meal("", "", "", "", ""); //price, glutenFree, vegan, vegetarian, allergyContents
+    
     /**
      * Creates new form CustomerGUI
      */
@@ -58,26 +60,26 @@ public class CustomerGUI extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         Other = new javax.swing.JRadioButton();
         AgeField = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
-        jRadioButton10 = new javax.swing.JRadioButton();
-        jRadioButton11 = new javax.swing.JRadioButton();
-        jRadioButton12 = new javax.swing.JRadioButton();
-        jRadioButton15 = new javax.swing.JRadioButton();
-        jRadioButton16 = new javax.swing.JRadioButton();
-        jRadioButton17 = new javax.swing.JRadioButton();
-        jRadioButton18 = new javax.swing.JRadioButton();
-        jRadioButton19 = new javax.swing.JRadioButton();
-        jRadioButton20 = new javax.swing.JRadioButton();
-        jRadioButton21 = new javax.swing.JRadioButton();
-        jRadioButton22 = new javax.swing.JRadioButton();
+        LactoseYes = new javax.swing.JRadioButton();
+        LactoseNo = new javax.swing.JRadioButton();
+        NutYes = new javax.swing.JRadioButton();
+        NutNo = new javax.swing.JRadioButton();
+        GlutenYes = new javax.swing.JRadioButton();
+        GlutenNo = new javax.swing.JRadioButton();
+        VeganYes = new javax.swing.JRadioButton();
+        VeganNo = new javax.swing.JRadioButton();
+        VegetarianYes = new javax.swing.JRadioButton();
+        VegetarianNo = new javax.swing.JRadioButton();
+        AppetizerYes = new javax.swing.JRadioButton();
+        AppetizerNo = new javax.swing.JRadioButton();
+        SidesYes = new javax.swing.JRadioButton();
+        SidesNo = new javax.swing.JRadioButton();
+        EntreeYes = new javax.swing.JRadioButton();
+        EntreeNo = new javax.swing.JRadioButton();
+        DessertYes = new javax.swing.JRadioButton();
+        DessertNo = new javax.swing.JRadioButton();
+        DrinkYes = new javax.swing.JRadioButton();
+        DrinkNo = new javax.swing.JRadioButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(100, 0), new java.awt.Dimension(100, 0), new java.awt.Dimension(100, 32767));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(500, 0), new java.awt.Dimension(500, 0), new java.awt.Dimension(500, 32767));
         jLabel17 = new javax.swing.JLabel();
@@ -88,9 +90,9 @@ public class CustomerGUI extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        SaveButton = new javax.swing.JButton();
+        PriceField = new javax.swing.JTextField();
+        RandomizeButton = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -98,11 +100,13 @@ public class CustomerGUI extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        DrinkField = new javax.swing.JTextField();
+        AppetizerField = new javax.swing.JTextField();
+        SidesField = new javax.swing.JTextField();
+        EntreeField = new javax.swing.JTextField();
+        DessertField = new javax.swing.JTextField();
+        ClearButton = new javax.swing.JButton();
+        RestoreButton = new javax.swing.JButton();
 
         jLabel21.setText("-------------------------------------------------------------------------------------------------------------------------------------");
 
@@ -178,65 +182,110 @@ public class CustomerGUI extends javax.swing.JFrame {
             }
         });
 
-        LactoseGroup.add(jRadioButton1);
-        jRadioButton1.setText("Yes");
+        LactoseGroup.add(LactoseYes);
+        LactoseYes.setText("Yes");
+        LactoseYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LactoseYesActionPerformed(evt);
+            }
+        });
 
-        LactoseGroup.add(jRadioButton2);
-        jRadioButton2.setText("No");
+        LactoseGroup.add(LactoseNo);
+        LactoseNo.setText("No");
+        LactoseNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LactoseNoActionPerformed(evt);
+            }
+        });
 
-        NutGroup.add(jRadioButton3);
-        jRadioButton3.setText("Yes");
+        NutGroup.add(NutYes);
+        NutYes.setText("Yes");
+        NutYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NutYesActionPerformed(evt);
+            }
+        });
 
-        NutGroup.add(jRadioButton4);
-        jRadioButton4.setText("No");
+        NutGroup.add(NutNo);
+        NutNo.setText("No");
 
-        GlutenGroup.add(jRadioButton5);
-        jRadioButton5.setText("Yes");
+        GlutenGroup.add(GlutenYes);
+        GlutenYes.setText("Yes");
 
-        GlutenGroup.add(jRadioButton6);
-        jRadioButton6.setText("No");
+        GlutenGroup.add(GlutenNo);
+        GlutenNo.setText("No");
 
-        VeganGroup.add(jRadioButton7);
-        jRadioButton7.setText("Yes");
+        VeganGroup.add(VeganYes);
+        VeganYes.setText("Yes");
 
-        VeganGroup.add(jRadioButton8);
-        jRadioButton8.setText("No");
+        VeganGroup.add(VeganNo);
+        VeganNo.setText("No");
 
-        VegetarianGroup.add(jRadioButton9);
-        jRadioButton9.setText("Yes");
+        VegetarianGroup.add(VegetarianYes);
+        VegetarianYes.setText("Yes");
 
-        VegetarianGroup.add(jRadioButton10);
-        jRadioButton10.setText("No");
+        VegetarianGroup.add(VegetarianNo);
+        VegetarianNo.setText("No");
 
-        AppetizerGroup.add(jRadioButton11);
-        jRadioButton11.setText("Yes");
+        AppetizerGroup.add(AppetizerYes);
+        AppetizerYes.setText("Yes");
+        AppetizerYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AppetizerYesActionPerformed(evt);
+            }
+        });
 
-        AppetizerGroup.add(jRadioButton12);
-        jRadioButton12.setText("No");
+        AppetizerGroup.add(AppetizerNo);
+        AppetizerNo.setText("No");
+        AppetizerNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AppetizerNoActionPerformed(evt);
+            }
+        });
 
-        SidesGroup.add(jRadioButton15);
-        jRadioButton15.setText("Yes");
+        SidesGroup.add(SidesYes);
+        SidesYes.setText("Yes");
 
-        SidesGroup.add(jRadioButton16);
-        jRadioButton16.setText("No");
+        SidesGroup.add(SidesNo);
+        SidesNo.setText("No");
+        SidesNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SidesNoActionPerformed(evt);
+            }
+        });
 
-        EntreeGroup.add(jRadioButton17);
-        jRadioButton17.setText("Yes");
+        EntreeGroup.add(EntreeYes);
+        EntreeYes.setText("Yes");
 
-        EntreeGroup.add(jRadioButton18);
-        jRadioButton18.setText("No");
+        EntreeGroup.add(EntreeNo);
+        EntreeNo.setText("No");
+        EntreeNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EntreeNoActionPerformed(evt);
+            }
+        });
 
-        DessertGroup.add(jRadioButton19);
-        jRadioButton19.setText("Yes");
+        DessertGroup.add(DessertYes);
+        DessertYes.setText("Yes");
 
-        DessertGroup.add(jRadioButton20);
-        jRadioButton20.setText("No");
+        DessertGroup.add(DessertNo);
+        DessertNo.setText("No");
+        DessertNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DessertNoActionPerformed(evt);
+            }
+        });
 
-        DrinkGroup.add(jRadioButton21);
-        jRadioButton21.setText("Yes");
+        DrinkGroup.add(DrinkYes);
+        DrinkYes.setText("Yes");
 
-        DrinkGroup.add(jRadioButton22);
-        jRadioButton22.setText("No");
+        DrinkGroup.add(DrinkNo);
+        DrinkNo.setText("No");
+        DrinkNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DrinkNoActionPerformed(evt);
+            }
+        });
 
         jLabel17.setText("-----------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
@@ -255,23 +304,23 @@ public class CustomerGUI extends javax.swing.JFrame {
 
         jLabel25.setText("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
-        jButton1.setText("Save");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        SaveButton.setText("Save");
+        SaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SaveButtonActionPerformed(evt);
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        PriceField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                PriceFieldActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Randomize Meal!");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        RandomizeButton.setText("Randomize Meal!");
+        RandomizeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                RandomizeButtonActionPerformed(evt);
             }
         });
 
@@ -289,9 +338,23 @@ public class CustomerGUI extends javax.swing.JFrame {
 
         jLabel32.setText("Dessert:");
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        DessertField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                DessertFieldActionPerformed(evt);
+            }
+        });
+
+        ClearButton.setText("Clear");
+        ClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearButtonActionPerformed(evt);
+            }
+        });
+
+        RestoreButton.setText("Restore");
+        RestoreButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RestoreButtonActionPerformed(evt);
             }
         });
 
@@ -305,8 +368,13 @@ public class CustomerGUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel29)
-                            .addComponent(jButton1)
-                            .addComponent(jLabel30))
+                            .addComponent(jLabel30)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(SaveButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ClearButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(RestoreButton)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -314,17 +382,17 @@ public class CustomerGUI extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addGap(178, 178, 178)
-                                .addComponent(jRadioButton21)
+                                .addComponent(DrinkYes)
                                 .addGap(0, 0, 0)
-                                .addComponent(jRadioButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DrinkNo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(23, 23, 23))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel26)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(AppetizerField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DrinkField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SidesField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(33, 33, 33)))))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,14 +402,14 @@ public class CustomerGUI extends javax.swing.JFrame {
                             .addComponent(jLabel32))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                            .addComponent(jTextField5))
+                            .addComponent(DessertField, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                            .addComponent(EntreeField))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -379,21 +447,21 @@ public class CustomerGUI extends javax.swing.JFrame {
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel4)
                                         .addGap(97, 97, 97)
-                                        .addComponent(jRadioButton1)
+                                        .addComponent(LactoseYes)
                                         .addGap(0, 0, 0)
-                                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(LactoseNo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel5)
                                         .addGap(141, 141, 141)
-                                        .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(NutYes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(NutNo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(214, 214, 214)
-                                        .addComponent(jRadioButton5)
+                                        .addComponent(GlutenYes)
                                         .addGap(0, 0, 0)
-                                        .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(GlutenNo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel6))
@@ -401,9 +469,9 @@ public class CustomerGUI extends javax.swing.JFrame {
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel13)
                                         .addGap(169, 169, 169)
-                                        .addComponent(jRadioButton7)
+                                        .addComponent(VeganYes)
                                         .addGap(0, 0, 0)
-                                        .addComponent(jRadioButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(VeganNo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(518, 518, 518)
                                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -411,9 +479,9 @@ public class CustomerGUI extends javax.swing.JFrame {
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel14)
                                         .addGap(144, 144, 144)
-                                        .addComponent(jRadioButton9)
+                                        .addComponent(VegetarianYes)
                                         .addGap(0, 0, 0)
-                                        .addComponent(jRadioButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(VegetarianNo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(110, 110, 110)
                                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -421,35 +489,35 @@ public class CustomerGUI extends javax.swing.JFrame {
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel7)
                                         .addGap(151, 151, 151)
-                                        .addComponent(jRadioButton11)
+                                        .addComponent(AppetizerYes)
                                         .addGap(0, 0, 0)
-                                        .addComponent(jRadioButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(AppetizerNo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(214, 214, 214)
                                         .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel9)
                                         .addGap(173, 173, 173)
-                                        .addComponent(jRadioButton15)
+                                        .addComponent(SidesYes)
                                         .addGap(0, 0, 0)
-                                        .addComponent(jRadioButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(SidesNo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel10)
                                         .addGap(169, 169, 169)
-                                        .addComponent(jRadioButton17)
+                                        .addComponent(EntreeYes)
                                         .addGap(0, 0, 0)
-                                        .addComponent(jRadioButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(EntreeNo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel11)
                                         .addGap(162, 162, 162)
-                                        .addComponent(jRadioButton19)
+                                        .addComponent(DessertYes)
                                         .addGap(0, 0, 0)
-                                        .addComponent(jRadioButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(DessertNo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(202, 202, 202)
-                                        .addComponent(jButton2)))
+                                        .addComponent(RandomizeButton)))
                                 .addGap(63, 63, 63))
                             .addComponent(jLabel20)
                             .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -481,23 +549,23 @@ public class CustomerGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(jLabel4))
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(LactoseYes)
+                    .addComponent(LactoseNo))
                 .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton4)))
+                            .addComponent(NutYes)
+                            .addComponent(NutNo)))
                     .addComponent(jLabel17))
                 .addGap(2, 2, 2)
                 .addComponent(jLabel18)
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton5)
-                    .addComponent(jRadioButton6)
+                    .addComponent(GlutenYes)
+                    .addComponent(GlutenNo)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(7, 7, 7)
@@ -505,8 +573,8 @@ public class CustomerGUI extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
-                    .addComponent(jRadioButton7)
-                    .addComponent(jRadioButton8))
+                    .addComponent(VeganYes)
+                    .addComponent(VeganNo))
                 .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel20)
@@ -516,8 +584,8 @@ public class CustomerGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(jLabel14))
-                    .addComponent(jRadioButton9)
-                    .addComponent(jRadioButton10))
+                    .addComponent(VegetarianYes)
+                    .addComponent(VegetarianNo))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addGap(21, 21, 21)
@@ -525,8 +593,8 @@ public class CustomerGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(jLabel7))
-                    .addComponent(jRadioButton11)
-                    .addComponent(jRadioButton12)
+                    .addComponent(AppetizerYes)
+                    .addComponent(AppetizerNo)
                     .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2)
                 .addComponent(jLabel22)
@@ -535,8 +603,8 @@ public class CustomerGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(jLabel9))
-                    .addComponent(jRadioButton15)
-                    .addComponent(jRadioButton16))
+                    .addComponent(SidesYes)
+                    .addComponent(SidesNo))
                 .addGap(2, 2, 2)
                 .addComponent(jLabel23)
                 .addGap(4, 4, 4)
@@ -544,15 +612,15 @@ public class CustomerGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(jLabel10))
-                    .addComponent(jRadioButton17)
-                    .addComponent(jRadioButton18))
+                    .addComponent(EntreeYes)
+                    .addComponent(EntreeNo))
                 .addGap(2, 2, 2)
                 .addComponent(jLabel24)
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
-                    .addComponent(jRadioButton19)
-                    .addComponent(jRadioButton20))
+                    .addComponent(DessertYes)
+                    .addComponent(DessertNo))
                 .addGap(2, 2, 2)
                 .addComponent(jLabel25)
                 .addGap(2, 2, 2)
@@ -560,44 +628,46 @@ public class CustomerGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(jLabel12))
-                    .addComponent(jRadioButton21)
-                    .addComponent(jRadioButton22))
+                    .addComponent(DrinkYes)
+                    .addComponent(DrinkNo))
                 .addGap(1, 1, 1)
                 .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(RandomizeButton)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EntreeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel26)
                             .addComponent(jLabel31)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(DrinkField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel29)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(AppetizerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel30)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(SidesField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel32)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(DessertField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(SaveButton)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ClearButton)
+                    .addComponent(RestoreButton))
                 .addGap(18, 18, 18))
         );
 
@@ -612,21 +682,82 @@ public class CustomerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
-    }                                        
+    }                                          
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void PriceFieldActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
+    }                                          
+
+    private void RandomizeButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        // TODO add your handling code here:
+    }                                               
+
+    private void DessertFieldActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:
+    }                                            
+
+    private void LactoseYesActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+    }                                          
+
+    private void LactoseNoActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        
+    }                                         
+
+    private void NutYesActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        // TODO add your handling code here:
+    }                                      
+
+    private void AppetizerYesActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        
+    }                                            
+
+    private void ClearButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        AgeField.setText("");
+        GenderGroup.clearSelection();
+        LactoseGroup.clearSelection();
+        AppetizerGroup.clearSelection();
+        NutGroup.clearSelection();
+        GlutenGroup.clearSelection();
+        VeganGroup.clearSelection();
+        VegetarianGroup.clearSelection();
+        SidesGroup.clearSelection();
+        EntreeGroup.clearSelection();
+        DessertGroup.clearSelection();
+        DrinkGroup.clearSelection();
+        DrinkField.setText("");
+        AppetizerField.setText("");
+        SidesField.setText("");
+        EntreeField.setText("");
+        DessertField.setText("");
+        PriceField.setText("");
     }                                           
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    private void AppetizerNoActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        
+    }                                           
+
+    private void SidesNoActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        
+    }                                       
+
+    private void EntreeNoActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        
     }                                        
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void DessertNoActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        
+    }                                         
+
+    private void DrinkNoActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        
+    }                                       
+
+    private void RestoreButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
-    }                                           
+    }                                             
 
     /**
      * @param args the command line arguments
@@ -665,24 +796,52 @@ public class CustomerGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify                     
     private javax.swing.JTextField AgeField;
+    private javax.swing.JTextField AppetizerField;
     private javax.swing.ButtonGroup AppetizerGroup;
+    private javax.swing.JRadioButton AppetizerNo;
+    private javax.swing.JRadioButton AppetizerYes;
+    private javax.swing.JButton ClearButton;
+    private javax.swing.JTextField DessertField;
     private javax.swing.ButtonGroup DessertGroup;
+    private javax.swing.JRadioButton DessertNo;
+    private javax.swing.JRadioButton DessertYes;
+    private javax.swing.JTextField DrinkField;
     private javax.swing.ButtonGroup DrinkGroup;
+    private javax.swing.JRadioButton DrinkNo;
+    private javax.swing.JRadioButton DrinkYes;
+    private javax.swing.JTextField EntreeField;
     private javax.swing.ButtonGroup EntreeGroup;
+    private javax.swing.JRadioButton EntreeNo;
+    private javax.swing.JRadioButton EntreeYes;
     private javax.swing.JRadioButton Female;
     private javax.swing.ButtonGroup GenderGroup;
     private javax.swing.ButtonGroup GlutenGroup;
+    private javax.swing.JRadioButton GlutenNo;
+    private javax.swing.JRadioButton GlutenYes;
     private javax.swing.ButtonGroup LactoseGroup;
+    private javax.swing.JRadioButton LactoseNo;
+    private javax.swing.JRadioButton LactoseYes;
     private javax.swing.JRadioButton Male;
     private javax.swing.ButtonGroup NutGroup;
+    private javax.swing.JRadioButton NutNo;
+    private javax.swing.JRadioButton NutYes;
     private javax.swing.JRadioButton Other;
+    private javax.swing.JTextField PriceField;
+    private javax.swing.JButton RandomizeButton;
+    private javax.swing.JButton RestoreButton;
+    private javax.swing.JButton SaveButton;
+    private javax.swing.JTextField SidesField;
     private javax.swing.ButtonGroup SidesGroup;
+    private javax.swing.JRadioButton SidesNo;
+    private javax.swing.JRadioButton SidesYes;
     private javax.swing.ButtonGroup VeganGroup;
+    private javax.swing.JRadioButton VeganNo;
+    private javax.swing.JRadioButton VeganYes;
     private javax.swing.ButtonGroup VegetarianGroup;
+    private javax.swing.JRadioButton VegetarianNo;
+    private javax.swing.JRadioButton VegetarianYes;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -715,31 +874,5 @@ public class CustomerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton11;
-    private javax.swing.JRadioButton jRadioButton12;
-    private javax.swing.JRadioButton jRadioButton15;
-    private javax.swing.JRadioButton jRadioButton16;
-    private javax.swing.JRadioButton jRadioButton17;
-    private javax.swing.JRadioButton jRadioButton18;
-    private javax.swing.JRadioButton jRadioButton19;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton20;
-    private javax.swing.JRadioButton jRadioButton21;
-    private javax.swing.JRadioButton jRadioButton22;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     // End of variables declaration                   
 }
