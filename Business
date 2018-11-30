@@ -1,5 +1,15 @@
-public class Business{
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package project;
 
+/**
+ *
+ * @author kaevan
+ */
+public class Business {
     protected String contactInfo;
     protected String location;
 
@@ -18,5 +28,4 @@ public class Business{
     public void setLocation(String location) {
         this.location = location;
     }
-
 }
