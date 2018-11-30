@@ -1,0 +1,38 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package project;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Project {
+
+    public static void main(String[] args) throws Exception {
+        File file0 = new File("/Users/takahideiwai/NetBeansProjects/Project/sideFile.txt");
+        BufferedReader br = new BufferedReader(new FileReader(file0));
+        ArrayList <String> sideArray= new ArrayList<String>();
+        ArrayList <String> sidePriceArray= new ArrayList<String>();
+        String sideString;
+        String sidePrice;
+        Random rand = new Random();
+        
+        
+        
+        while ((sideString = br.readLine()) != null) {
+            
+            sidePrice=sideString.substring(sideString.length() - 4 ,sideString.length() );
+            sideString=sideString.substring(0,sideString.length() - 5);
+            sideArray.add(sideString);
+            sidePriceArray.add(sidePrice);           
+            }
+        int random = rand.nextInt(sideArray.size());
+        System.out.println(random);
+        System.out.println(sideArray.get(random));
+        System.out.println(sidePriceArray.get(random));
+        
+    }
+}
