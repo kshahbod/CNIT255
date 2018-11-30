@@ -10,7 +10,7 @@ package cnit255;
  *
  * @author takahideiwai
  */
-public class Meal {
+public class Meal extends Guest{
     protected int price;
     protected boolean glutenFree;
     protected boolean vegan;
