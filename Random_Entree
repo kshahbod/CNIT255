@@ -1,0 +1,41 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package project;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Random;
+
+/**
+ *
+ * @author kaevan
+ */
+public class Random_Entree {
+    public static void main(String[] args) throws Exception {
+        File file0 = new File("/Users/kaevan/NetBeansProjects/Project/Entree.txt");
+        BufferedReader br = new BufferedReader(new FileReader(file0));
+        ArrayList<String> entreeArray = new ArrayList<String>();
+        ArrayList<String> entreePriceArray = new ArrayList<String>();
+        String entreeString;
+        String entreePrice;
+        Random rand = new Random();
+
+        while ((entreeString = br.readLine()) != null) {
+
+            entreePrice = entreeString.substring(entreeString.length() - 4, entreeString.length());
+            entreeString = entreeString.substring(0, entreeString.length() - 5);
+            entreeArray.add(entreeString);
+            entreePriceArray.add(entreePrice);
+        }
+        int random = rand.nextInt(entreeArray.size());
+        System.out.println(random);
+        System.out.println(entreeArray.get(random));
+        System.out.println(entreePriceArray.get(random));
+    
+    }
+}
