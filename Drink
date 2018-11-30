@@ -1,15 +1,17 @@
-public class Drink extends Meal {
-    public boolean Alcoholic;
-    
-    public Drink (boolean Alc) {
-    this.Alcoholic = Alc;
+public class Drink extends Meal{
+
+    protected boolean alcoholic;
+
+    public Drink (boolean alcoholic) {
+        this.alcoholic = alcoholic;
     }
-    
-    public void setAlcohol(boolean Alc){
-        this.Alcoholic = Alc;
+
+    public boolean isAlcoholic(){
+        return alcoholic;
     }
-    
-    public boolean getAlcohol(){
-        return Alcoholic;
+
+    public void setAlcohol(boolean alcoholic){
+        this.alcoholic = alcoholic;
     }
+
 }
