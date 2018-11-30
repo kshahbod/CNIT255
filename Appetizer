@@ -1,0 +1,29 @@
+public class Appetizer  {
+    protected String soup;
+    protected String salad;
+    protected String pubFood;
+
+    public String getSoup() {
+        return soup;
+    }
+
+    public void setSoup(String soup) {
+        this.soup = soup;
+    }
+
+    public String getSalad() {
+        return salad;
+    }
+
+    public void setSalad(String salad) {
+        this.salad = salad;
+    }
+
+    public String getPubFood() {
+        return pubFood;
+    }
+
+    public void setPubFood(String pubFood) {
+        this.pubFood = pubFood;
+    }
+}
