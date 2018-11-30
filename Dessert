@@ -1,5 +1,21 @@
-public class Dessert extends Meal{
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package project;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Random;
+
+/**
+ *
+ * @author kaevan
+ */
+public class Dessert {
     protected String dessertItem;
 
     public Dessert (String dessertItem) {
@@ -13,4 +29,27 @@ public class Dessert extends Meal{
     public String getDessert(){
         return dessertItem;
     }
+    
+    
+    public void RandomDessertGenerator() throws Exception{
+    File file0 = new File("/Users/kaevan/NetBeansProjects/Project/Desserts.txt");
+        BufferedReader br = new BufferedReader(new FileReader(file0));
+        ArrayList<String> dessertArray = new ArrayList<String>();
+        ArrayList<String> dessertPriceArray = new ArrayList<String>();
+        String dessertString;
+        String dessertPrice;
+        Random rand = new Random();
+
+        while ((dessertString = br.readLine()) != null) {
+
+            dessertPrice = dessertString.substring(dessertString.length() - 4, dessertString.length());
+            dessertString = dessertString.substring(0, dessertString.length() - 5);
+            dessertArray.add(dessertString);
+            dessertPriceArray.add(dessertPrice);
+        }
+        int random = rand.nextInt(dessertArray.size());
+        System.out.println(random);
+        System.out.println(dessertArray.get(random));
+        System.out.println(dessertPriceArray.get(random));
+}
 }
