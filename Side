@@ -2,7 +2,7 @@ public class Sides extends Meal{
     
     public String SideItem;
     
-    public Side (String side) {
+    public Sides (String side) {
     this.SideItem = side;
     }
     
