@@ -1,16 +1,16 @@
 public class Entree extends Meal{
-    
-    public String EntreeItem;
-    
-    public Entree (String entree) {
-    this.EntreeItem = entree;
+
+    protected String entreeItem;
+
+    public Entree (String entreeItem) {
+        this.entreeItem = entreeItem;
     }
-    
-    public void setEntree(String entree){
-        this.EntreeItem = entree;
+
+    public void setEntree(String entreeItem){
+        this.entreeItem = entreeItem;
     }
-    
+
     public String getEntree(){
-        return EntreeItem;
+        return entreeItem;
     }
 }
