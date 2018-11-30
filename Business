@@ -5,27 +5,51 @@
  */
 package project;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Random;
+
 /**
  *
  * @author kaevan
  */
-public class Business {
-    protected String contactInfo;
-    protected String location;
+public class Dessert {
+    protected String dessertItem;
 
-    public String getContactInfo() {
-        return contactInfo;
+    public Dessert (String dessertItem) {
+        this.dessertItem = dessertItem;
     }
 
-    public void setContactInfo(String contactInfo) {
-        this.contactInfo = contactInfo;
+    public void setDessert(String dessertItem){
+        this.dessertItem = dessertItem;
     }
 
-    public String getLocation() {
-        return location;
+    public String getDessert(){
+        return dessertItem;
     }
     
-    public void setLocation(String location) {
-        this.location = location;
-    }
+    
+    public void RandomDessertGenerator() throws Exception{
+    File file0 = new File("/Users/kaevan/NetBeansProjects/Project/Desserts.txt");
+        BufferedReader br = new BufferedReader(new FileReader(file0));
+        ArrayList<String> dessertArray = new ArrayList<String>();
+        ArrayList<String> dessertPriceArray = new ArrayList<String>();
+        String dessertString;
+        String dessertPrice;
+        Random rand = new Random();
+
+        while ((dessertString = br.readLine()) != null) {
+
+            dessertPrice = dessertString.substring(dessertString.length() - 4, dessertString.length());
+            dessertString = dessertString.substring(0, dessertString.length() - 5);
+            dessertArray.add(dessertString);
+            dessertPriceArray.add(dessertPrice);
+        }
+        int random = rand.nextInt(dessertArray.size());
+        System.out.println(random);
+        System.out.println(dessertArray.get(random));
+        System.out.println(dessertPriceArray.get(random));
+}
 }
