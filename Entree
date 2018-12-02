@@ -1,4 +1,3 @@
-
 package project;
 
 import java.io.BufferedReader;
@@ -7,7 +6,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Entree extends Meal{
+public class Entree {
     protected String entreeItem;
 
     public Entree (String entreeItem) {
@@ -15,7 +14,11 @@ public class Entree extends Meal{
     }
 
     public void setEntree(String entreeItem){
-        this.entreeItem = entreeItem;
+        try {
+            this.entreeItem = generateEntree();
+        } catch (Exception e) {
+            System.out.println("Error occurred");
+        }
     }
 
     public String getEntree(){
@@ -23,7 +26,7 @@ public class Entree extends Meal{
     }
     
     
-    public void RandomDessertGenerator() throws Exception{
+    public String generateEntree() throws Exception{
     File file0 = new File("/Users/kaevan/NetBeansProjects/Project/Entree.txt");
         BufferedReader br = new BufferedReader(new FileReader(file0));
         ArrayList<String> entreeArray = new ArrayList<String>();
@@ -43,5 +46,6 @@ public class Entree extends Meal{
         System.out.println(random);
         System.out.println(entreeArray.get(random));
         System.out.println(entreePriceArray.get(random));
+        return entreeArray.get(random);
     }
 }
