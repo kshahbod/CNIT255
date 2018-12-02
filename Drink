@@ -1,4 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
+
+
+ 
 package project;
 
 import java.io.BufferedReader;
@@ -8,22 +16,31 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Drink extends Meal{
-    protected boolean alcoholic;
 
-    public Drink (boolean alcoholic) {
-        this.alcoholic = alcoholic;
+public class Drink {
+    String alchohol;
+
+    public Drink(String alchohol) {
+        this.alchohol = alchohol;
     }
 
-    public boolean isAlcoholic(){
-        return alcoholic;
+    public String getAlchohol() {
+        return alchohol;
     }
 
-    public void setAlcohol(boolean alcoholic){
-        this.alcoholic = alcoholic;
+    public void setAlchohol(String alchohol) {
+         try {
+            this.alchohol = generateAlchohol();
+        } catch (Exception e) {
+            System.out.println("Error occurred");
+        }
     }
+
+  
+
     
-    public void RandomDessertGenerator() throws Exception{
+    
+    public String generateAlchohol() throws Exception{
     File file0 = new File("/Users/kaevan/NetBeansProjects/Project/Drink.txt");
         BufferedReader br = new BufferedReader(new FileReader(file0));
         ArrayList<String> drinkArray = new ArrayList<String>();
@@ -43,5 +60,6 @@ public class Drink extends Meal{
         System.out.println(random);
         System.out.println(drinkArray.get(random));
         System.out.println(drinkPriceArray.get(random));
+        return drinkArray.get(random);
     }
 }
