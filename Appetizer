@@ -1,4 +1,3 @@
-
 package project;
 
 import java.io.BufferedReader;
@@ -8,38 +7,30 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Appetizer extends Meal{
+public class Appetizer {
     
-    protected String soup;
-    protected String salad;
-    protected String pubFood;
+    String appetizer;
 
-    public String getSoup() {
-        return soup;
+    public Appetizer(String appetizer) {
+        this.appetizer = appetizer;
     }
 
-    public void setSoup(String soup) {
-        this.soup = soup;
+    public String getAppetizer() {
+        return appetizer;
     }
 
-    public String getSalad() {
-        return salad;
-    }
-
-    public void setSalad(String salad) {
-        this.salad = salad;
-    }
-
-    public String getPubFood() {
-        return pubFood;
-    }
-
-    public void setPubFood(String pubFood) {
-        this.pubFood = pubFood;
+    public void setAppetizer(String appetizer) {
+        try {
+            this.appetizer = generateApp();
+        } catch (Exception e) {
+            System.out.println("Error occurred");
+        }
     }
 
     
-    public void RandomDessertGenerator() throws Exception{
+
+    
+    public String generateApp() throws Exception{
         File file0 = new File("/Users/kaevan/NetBeansProjects/Project/Appetizer.txt");
         BufferedReader br = new BufferedReader(new FileReader(file0));
         ArrayList<String> appetizerArray = new ArrayList<String>();
@@ -59,5 +50,6 @@ public class Appetizer extends Meal{
         System.out.println(random);
         System.out.println(appetizerArray.get(random));
         System.out.println(appetizerPriceArray.get(random));
+        return appetizerArray.get(random);
     }
 }
