@@ -1,16 +1,62 @@
-public class Sides extends Meal{
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package project;
 
-    protected String sideItem;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Random;
 
-    public Sides (String sideItem) {
-        this.sideItem = sideItem;
+/**
+ *
+ * @author takahideiwai
+ */
+public class Sides {
+
+    String side;
+
+    public static String generateSide() throws Exception {
+
+        File file0 = new File("/Users/kaevan/NetBeansProjects/Project/Sides.txt");
+        BufferedReader br = new BufferedReader(new FileReader(file0));
+        ArrayList<String> sideArray = new ArrayList<String>();
+        ArrayList<String> sidePriceArray = new ArrayList<String>();
+        String sideString;
+        String sidePrice;
+        Random rand = new Random();
+
+        while ((sideString = br.readLine()) != null) {
+
+            sidePrice = sideString.substring(sideString.length() - 4, sideString.length());
+            sideString = sideString.substring(0, sideString.length() - 5);
+            sideArray.add(sideString);
+            sidePriceArray.add(sidePrice);
+        }
+        int random = rand.nextInt(sideArray.size());
+        System.out.println(random);
+        System.out.println(sideArray.get(random));
+        System.out.println(sidePriceArray.get(random));
+        return sideArray.get(random);
     }
 
-    public void setSide(String sideItem){
-        this.sideItem = sideItem;
+    public Sides(String side) {
+        this.side = side;
     }
 
-    public String getDessert(){
-        return sideItem;
+    public String getSide() {
+        return side;
     }
+
+    public void setSide(String side) {
+        try {
+            this.side = generateSide();
+        } catch (Exception e) {
+            System.out.println("Error occurred");
+        }
+    }
+
 }
