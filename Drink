@@ -19,6 +19,11 @@ import java.util.Random;
 
 public class Drink {
     String alchohol;
+    String price; 
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
     public Drink(String alchohol) {
         this.alchohol = alchohol;
@@ -35,16 +40,19 @@ public class Drink {
             System.out.println("Error occurred");
         }
     }
-
-  
-
     
+    public String getPrice() {
+        return drinkPriceArray.get(random);
+    }
+
+    ArrayList<String> drinkPriceArray;
+    int random;
     
     public String generateAlchohol() throws Exception{
     File file0 = new File("/Users/kaevan/NetBeansProjects/Project/Drink.txt");
         BufferedReader br = new BufferedReader(new FileReader(file0));
         ArrayList<String> drinkArray = new ArrayList<String>();
-        ArrayList<String> drinkPriceArray = new ArrayList<String>();
+        drinkPriceArray = new ArrayList<String>();
         String drinkString;
         String drinkPrice;
         Random rand = new Random();
@@ -56,7 +64,7 @@ public class Drink {
             drinkArray.add(drinkString);
             drinkPriceArray.add(drinkPrice);
         }
-        int random = rand.nextInt(drinkArray.size());
+        random = rand.nextInt(drinkArray.size());
         System.out.println(random);
         System.out.println(drinkArray.get(random));
         System.out.println(drinkPriceArray.get(random));
