@@ -7,7 +7,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Entree {
-    protected String entreeItem;
+    String entreeItem;
+    String price;
+
+    public void setEntreeItem(String entreeItem) {
+        this.entreeItem = entreeItem;
+    }
 
     public Entree (String entreeItem) {
         this.entreeItem = entreeItem;
@@ -26,11 +31,19 @@ public class Entree {
     }
     
     
+    public String getPrice() {
+        return entreePriceArray.get(random);
+    }
+
+    ArrayList<String> entreePriceArray;
+    int random;
+    
+    
     public String generateEntree() throws Exception{
     File file0 = new File("/Users/kaevan/NetBeansProjects/Project/Entree.txt");
         BufferedReader br = new BufferedReader(new FileReader(file0));
         ArrayList<String> entreeArray = new ArrayList<String>();
-        ArrayList<String> entreePriceArray = new ArrayList<String>();
+        entreePriceArray = new ArrayList<String>();
         String entreeString;
         String entreePrice;
         Random rand = new Random();
@@ -42,7 +55,7 @@ public class Entree {
             entreeArray.add(entreeString);
             entreePriceArray.add(entreePrice);
         }
-        int random = rand.nextInt(entreeArray.size());
+        random = rand.nextInt(entreeArray.size());
         System.out.println(random);
         System.out.println(entreeArray.get(random));
         System.out.println(entreePriceArray.get(random));
