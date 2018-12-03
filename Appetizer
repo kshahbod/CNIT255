@@ -10,6 +10,11 @@ import java.util.Random;
 public class Appetizer {
     
     String appetizer;
+    String price;
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
     public Appetizer(String appetizer) {
         this.appetizer = appetizer;
@@ -27,14 +32,20 @@ public class Appetizer {
         }
     }
 
-    
+   
+    public String getPrice() {
+        return appetizerPriceArray.get(random);
+    }
+
+    ArrayList<String> appetizerPriceArray;
+    int random;
 
     
     public String generateApp() throws Exception{
         File file0 = new File("/Users/kaevan/NetBeansProjects/Project/Appetizer.txt");
         BufferedReader br = new BufferedReader(new FileReader(file0));
         ArrayList<String> appetizerArray = new ArrayList<String>();
-        ArrayList<String> appetizerPriceArray = new ArrayList<String>();
+        appetizerPriceArray = new ArrayList<String>();
         String appetizerString;
         String appetizerPrice;
         Random rand = new Random();
@@ -46,7 +57,7 @@ public class Appetizer {
             appetizerArray.add(appetizerString);
             appetizerPriceArray.add(appetizerPrice);
         }
-        int random = rand.nextInt(appetizerArray.size());
+        random = rand.nextInt(appetizerArray.size());
         System.out.println(random);
         System.out.println(appetizerArray.get(random));
         System.out.println(appetizerPriceArray.get(random));
