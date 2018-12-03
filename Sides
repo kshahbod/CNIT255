@@ -18,30 +18,12 @@ import java.util.Random;
 public class Sides {
 
     String side;
+    String price;
 
-    public static String generateSide() throws Exception {
-
-        File file0 = new File("/Users/kaevan/NetBeansProjects/Project/Sides.txt");
-        BufferedReader br = new BufferedReader(new FileReader(file0));
-        ArrayList<String> sideArray = new ArrayList<String>();
-        ArrayList<String> sidePriceArray = new ArrayList<String>();
-        String sideString;
-        String sidePrice;
-        Random rand = new Random();
-
-        while ((sideString = br.readLine()) != null) {
-
-            sidePrice = sideString.substring(sideString.length() - 4, sideString.length());
-            sideString = sideString.substring(0, sideString.length() - 5);
-            sideArray.add(sideString);
-            sidePriceArray.add(sidePrice);
-        }
-        int random = rand.nextInt(sideArray.size());
-        System.out.println(random);
-        System.out.println(sideArray.get(random));
-        System.out.println(sidePriceArray.get(random));
-        return sideArray.get(random);
+    public void setPrice(String price) {
+        this.price = price;
     }
+    
 
     public Sides(String side) {
         this.side = side;
@@ -59,4 +41,35 @@ public class Sides {
         }
     }
 
+    public String getPrice() {
+        return sidePriceArray.get(random);
+    }
+
+    ArrayList<String> sidePriceArray;
+    int random;
+    
+    
+    public String generateSide() throws Exception {
+
+        File file0 = new File("/Users/kaevan/NetBeansProjects/Project/Sides.txt");
+        BufferedReader br = new BufferedReader(new FileReader(file0));
+        ArrayList<String> sideArray = new ArrayList<String>();
+        sidePriceArray = new ArrayList<String>();
+        String sideString;
+        String sidePrice;
+        Random rand = new Random();
+
+        while ((sideString = br.readLine()) != null) {
+
+            sidePrice = sideString.substring(sideString.length() - 4, sideString.length());
+            sideString = sideString.substring(0, sideString.length() - 5);
+            sideArray.add(sideString);
+            sidePriceArray.add(sidePrice);
+        }
+        random = rand.nextInt(sideArray.size());
+        System.out.println(random);
+        System.out.println(sideArray.get(random));
+        System.out.println(sidePriceArray.get(random));
+        return sideArray.get(random);
+    }
 }
