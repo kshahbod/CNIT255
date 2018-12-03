@@ -8,6 +8,11 @@ import java.util.Random;
 
 public class Dessert {
     String dessertItem;
+    String price;
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
     public Dessert (String dessertItem) {
         this.dessertItem = dessertItem;
@@ -25,12 +30,18 @@ public class Dessert {
         return dessertItem;
     }
     
+    public String getPrice() {
+        return dessertPriceArray.get(random);
+    }
+
+    ArrayList<String> dessertPriceArray;
+    int random;
     
     public String generateDessert() throws Exception{
     File file0 = new File("/Users/kaevan/NetBeansProjects/Project/Desserts.txt");
         BufferedReader br = new BufferedReader(new FileReader(file0));
         ArrayList<String> dessertArray = new ArrayList<String>();
-        ArrayList<String> dessertPriceArray = new ArrayList<String>();
+        dessertPriceArray = new ArrayList<String>();
         String dessertString;
         String dessertPrice;
         Random rand = new Random();
@@ -42,7 +53,7 @@ public class Dessert {
             dessertArray.add(dessertString);
             dessertPriceArray.add(dessertPrice);
         }
-        int random = rand.nextInt(dessertArray.size());
+        random = rand.nextInt(dessertArray.size());
         System.out.println(random);
         System.out.println(dessertArray.get(random));
         System.out.println(dessertPriceArray.get(random));
