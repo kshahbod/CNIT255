@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package project;
 
 import static project.TimeInterface.htmlTimeGet.getCurrentTime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Random;
+import java.io.*;
 
+public class CustomerGUI extends javax.swing.JFrame {
 
-public class CustomerGUI extends javax.swing.JFrame{
-    
-  
     public CustomerGUI() {
         initComponents();
     }
@@ -51,7 +54,6 @@ public class CustomerGUI extends javax.swing.JFrame{
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         Male = new javax.swing.JRadioButton();
         jLabel14 = new javax.swing.JLabel();
         Female = new javax.swing.JRadioButton();
@@ -79,7 +81,7 @@ public class CustomerGUI extends javax.swing.JFrame{
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(100, 0), new java.awt.Dimension(100, 0), new java.awt.Dimension(100, 32767));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(500, 0), new java.awt.Dimension(500, 0), new java.awt.Dimension(500, 32767));
         SaveButton = new javax.swing.JButton();
-        PriceField = new javax.swing.JTextField();
+        PriceFieldD = new javax.swing.JTextField();
         RandomizeButton = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -92,11 +94,17 @@ public class CustomerGUI extends javax.swing.JFrame{
         EntreeField = new javax.swing.JTextField();
         DessertField = new javax.swing.JTextField();
         ClearButton = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        TimestampField = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         OverAge = new javax.swing.JRadioButton();
         UnderAge = new javax.swing.JRadioButton();
+        PriceFieldDe = new javax.swing.JTextField();
+        PriceFieldE = new javax.swing.JTextField();
+        PriceFieldA = new javax.swing.JTextField();
+        PriceFieldS = new javax.swing.JTextField();
+        SumField = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
 
         jLabel21.setText("-------------------------------------------------------------------------------------------------------------------------------------");
 
@@ -144,16 +152,8 @@ public class CustomerGUI extends javax.swing.JFrame{
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setText("Vegan");
 
-        jLabel15.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        jLabel15.setText("Price:");
-
         GenderGroup.add(Male);
         Male.setText("Male");
-        Male.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MaleActionPerformed(evt);
-            }
-        });
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setText("Vegetarian");
@@ -166,27 +166,12 @@ public class CustomerGUI extends javax.swing.JFrame{
 
         LactoseGroup.add(LactoseYes);
         LactoseYes.setText("Yes");
-        LactoseYes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LactoseYesActionPerformed(evt);
-            }
-        });
 
         LactoseGroup.add(LactoseNo);
         LactoseNo.setText("No");
-        LactoseNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LactoseNoActionPerformed(evt);
-            }
-        });
 
         NutGroup.add(NutYes);
         NutYes.setText("Yes");
-        NutYes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NutYesActionPerformed(evt);
-            }
-        });
 
         NutGroup.add(NutNo);
         NutNo.setText("No");
@@ -211,63 +196,33 @@ public class CustomerGUI extends javax.swing.JFrame{
 
         AppetizerGroup.add(AppetizerYes);
         AppetizerYes.setText("Yes");
-        AppetizerYes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AppetizerYesActionPerformed(evt);
-            }
-        });
 
         AppetizerGroup.add(AppetizerNo);
         AppetizerNo.setText("No");
-        AppetizerNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AppetizerNoActionPerformed(evt);
-            }
-        });
 
         SidesGroup.add(SidesYes);
         SidesYes.setText("Yes");
 
         SidesGroup.add(SidesNo);
         SidesNo.setText("No");
-        SidesNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SidesNoActionPerformed(evt);
-            }
-        });
 
         EntreeGroup.add(EntreeYes);
         EntreeYes.setText("Yes");
 
         EntreeGroup.add(EntreeNo);
         EntreeNo.setText("No");
-        EntreeNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EntreeNoActionPerformed(evt);
-            }
-        });
 
         DessertGroup.add(DessertYes);
         DessertYes.setText("Yes");
 
         DessertGroup.add(DessertNo);
         DessertNo.setText("No");
-        DessertNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DessertNoActionPerformed(evt);
-            }
-        });
 
         DrinkGroup.add(DrinkYes);
         DrinkYes.setText("Yes");
 
         DrinkGroup.add(DrinkNo);
         DrinkNo.setText("No");
-        DrinkNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DrinkNoActionPerformed(evt);
-            }
-        });
 
         SaveButton.setText("Save");
         SaveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -276,12 +231,7 @@ public class CustomerGUI extends javax.swing.JFrame{
             }
         });
 
-        PriceField.setEditable(false);
-        PriceField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PriceFieldActionPerformed(evt);
-            }
-        });
+        PriceFieldD.setEditable(false);
 
         RandomizeButton.setText("Randomize Meal!");
         RandomizeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -314,11 +264,6 @@ public class CustomerGUI extends javax.swing.JFrame{
         EntreeField.setEditable(false);
 
         DessertField.setEditable(false);
-        DessertField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DessertFieldActionPerformed(evt);
-            }
-        });
 
         ClearButton.setText("Clear");
         ClearButton.addActionListener(new java.awt.event.ActionListener() {
@@ -327,7 +272,7 @@ public class CustomerGUI extends javax.swing.JFrame{
             }
         });
 
-        jTextField1.setEditable(false);
+        TimestampField.setEditable(false);
 
         jLabel33.setText("Timestamp:");
 
@@ -339,11 +284,16 @@ public class CustomerGUI extends javax.swing.JFrame{
 
         AgeGroup.add(UnderAge);
         UnderAge.setText("No");
-        UnderAge.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UnderAgeActionPerformed(evt);
-            }
-        });
+
+        PriceFieldDe.setEditable(false);
+
+        PriceFieldE.setEditable(false);
+
+        PriceFieldA.setEditable(false);
+
+        PriceFieldS.setEditable(false);
+
+        jLabel15.setText("Total:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -354,8 +304,8 @@ public class CustomerGUI extends javax.swing.JFrame{
                 .addComponent(jLabel1)
                 .addGap(85, 85, 85)
                 .addComponent(jLabel33)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TimestampField, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
             .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
@@ -368,9 +318,9 @@ public class CustomerGUI extends javax.swing.JFrame{
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(151, 151, 151)
                                 .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel26)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel26)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addComponent(jLabel30)
@@ -381,29 +331,33 @@ public class CustomerGUI extends javax.swing.JFrame{
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(DrinkField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(AppetizerField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(103, 103, 103)
-                                        .addComponent(SaveButton)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(ClearButton)))
-                                .addGap(100, 100, 100)
+                                                .addComponent(AppetizerField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(PriceFieldD, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PriceFieldA, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PriceFieldS, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(20, 20, 20)
-                                        .addComponent(PriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
+                                        .addGap(36, 36, 36)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel32)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(DessertField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(DessertField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(PriceFieldDe, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel31)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(EntreeField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                                .addComponent(EntreeField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(PriceFieldE, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(102, 102, 102)
+                                        .addComponent(jLabel15)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(SumField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -415,98 +369,101 @@ public class CustomerGUI extends javax.swing.JFrame{
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(VegetarianNo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(GlutenYes)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(GlutenNo))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel4)
-                                            .addGap(97, 97, 97)
-                                            .addComponent(LactoseYes)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(LactoseNo))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel5)
-                                            .addGap(141, 141, 141)
-                                            .addComponent(NutYes)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(NutNo))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel34)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(OverAge)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(UnderAge))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel2)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(Male)
-                                            .addGap(3, 3, 3)
-                                            .addComponent(Female)
-                                            .addGap(11, 11, 11)
-                                            .addComponent(Other)))))
-                            .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addGap(169, 169, 169)
-                                .addComponent(VeganYes)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(VeganNo)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel13)
+                                    .addGap(169, 169, 169)
+                                    .addComponent(VeganYes)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(VeganNo))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(GlutenYes)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(GlutenNo))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(97, 97, 97)
+                                        .addComponent(LactoseYes)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(LactoseNo))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(141, 141, 141)
+                                        .addComponent(NutYes)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(NutNo))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel34)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(OverAge)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(UnderAge))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(Male)
+                                        .addGap(3, 3, 3)
+                                        .addComponent(Female)
+                                        .addGap(11, 11, 11)
+                                        .addComponent(Other)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jLabel10)
-                                                    .addGap(171, 171, 171)
-                                                    .addComponent(EntreeYes))
-                                                .addComponent(DessertYes))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(EntreeNo)
-                                                .addComponent(DessertNo)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel9)
-                                                .addGap(179, 179, 179)
-                                                .addComponent(SidesYes)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(SidesNo))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel7)
-                                                .addGap(154, 154, 154)
-                                                .addComponent(AppetizerYes)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(AppetizerNo))))
-                                    .addComponent(jLabel11)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel12)
-                                        .addGap(179, 179, 179)
-                                        .addComponent(DrinkYes)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(EntreeYes)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel11)
+                                                .addGap(165, 165, 165)
+                                                .addComponent(DessertYes)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(DrinkNo))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(EntreeNo)
+                                            .addComponent(DessertNo)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel9)
+                                            .addGap(179, 179, 179)
+                                            .addComponent(SidesYes)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(SidesNo))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel7)
+                                            .addGap(154, 154, 154)
+                                            .addComponent(AppetizerYes)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(AppetizerNo))
+                                        .addComponent(jLabel10)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel12)
+                                    .addGap(179, 179, 179)
+                                    .addComponent(DrinkYes)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(DrinkNo)))
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(174, 174, 174))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(308, 308, 308)
-                .addComponent(RandomizeButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(355, 355, 355)
+                        .addComponent(RandomizeButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(338, 338, 338)
+                        .addComponent(SaveButton)
+                        .addGap(28, 28, 28)
+                        .addComponent(ClearButton)))
+                .addContainerGap(566, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TimestampField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel33)
                     .addComponent(jLabel1))
                 .addGap(5, 5, 5)
@@ -525,112 +482,116 @@ public class CustomerGUI extends javax.swing.JFrame{
                     .addComponent(jLabel34)
                     .addComponent(OverAge)
                     .addComponent(UnderAge))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(jLabel4))
-                            .addComponent(LactoseYes)
-                            .addComponent(LactoseNo))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(NutYes)
-                                .addComponent(NutNo))
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(GlutenYes)
-                            .addComponent(GlutenNo)
-                            .addComponent(jLabel6))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(VeganYes)
-                                .addComponent(VeganNo)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(jLabel14))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(VegetarianYes)
-                                .addComponent(VegetarianNo))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(jLabel7))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(AppetizerNo)
-                                .addComponent(AppetizerYes)))
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(jLabel9))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(SidesYes)
-                                .addComponent(SidesNo)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel10))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(EntreeYes)
-                                    .addComponent(EntreeNo))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(jLabel11))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(DessertYes)
-                                    .addComponent(DessertNo))))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DrinkYes)
-                            .addComponent(DrinkNo)
-                            .addComponent(jLabel12))))
-                .addGap(17, 17, 17)
-                .addComponent(RandomizeButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jLabel7))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(AppetizerNo)
+                                        .addComponent(AppetizerYes)))
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jLabel9))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(SidesYes)
+                                        .addComponent(SidesNo)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(EntreeYes)
+                                            .addComponent(EntreeNo)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel10)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(DessertYes)
+                                        .addComponent(DessertNo))
+                                    .addComponent(jLabel11))
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(DrinkYes)
+                                    .addComponent(DrinkNo)
+                                    .addComponent(jLabel12))
+                                .addGap(58, 58, 58))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jLabel4))
+                                    .addComponent(LactoseYes)
+                                    .addComponent(LactoseNo))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(NutYes)
+                                        .addComponent(NutNo))
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(GlutenYes)
+                                    .addComponent(GlutenNo)
+                                    .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(VeganYes)
+                                        .addComponent(VeganNo)))
+                                .addGap(8, 8, 8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jLabel14))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(VegetarianYes)
+                                        .addComponent(VegetarianNo)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(RandomizeButton)
+                                .addGap(8, 8, 8)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel26)
                             .addComponent(DrinkField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel31)
-                            .addComponent(EntreeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(EntreeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PriceFieldD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PriceFieldE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel29)
                             .addComponent(AppetizerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(DessertField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel32))
+                            .addComponent(jLabel32)
+                            .addComponent(PriceFieldDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PriceFieldA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel30)
-                            .addComponent(SidesField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SaveButton)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(ClearButton)
-                                .addComponent(jLabel15)
-                                .addComponent(PriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(SidesField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PriceFieldS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(SumField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
+                        .addGap(20, 20, 20)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SaveButton)
+                    .addComponent(ClearButton))
+                .addContainerGap())
         );
 
         pack();
@@ -640,29 +601,16 @@ public class CustomerGUI extends javax.swing.JFrame{
     Drink d1 = new Drink("");
     Appetizer a1 = new Appetizer("");
     Dessert de1 = new Dessert("");
-    Entree e1= new Entree("");
-      
-    
-    private void MaleActionPerformed(java.awt.event.ActionEvent evt) {                                     
-        // TODO add your handling code here:
-    }                                    
-
-    private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
-
-        String time = "";
-    try {
-            time = getCurrentTime("http://api.timezonedb.com/v2/get-time-zone?key=U5M24CM8VUSS&format=json&by=zone&zone=America/Indiana/Indianapolis");
-        }
-    catch (Exception ex) {
-        }
-    time = time.substring(274, time.length() - 2);
-    
-    jTextField1.setText(time);
-    }                                          
-
-    private void PriceFieldActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
-    }                                          
+    Entree e1 = new Entree("");
+    double sPrice = 0.0;
+    double dPrice = 0.0;
+    double aPrice = 0.0;
+    double ePrice = 0.0;
+    double dePrice = 0.0;
+    double sum = 0.0;
+    String output = "";
+    int i = 0;
+    String name = "Receipt";
 
     private void RandomizeButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                
         s1.setSide("");
@@ -670,73 +618,69 @@ public class CustomerGUI extends javax.swing.JFrame{
         a1.setAppetizer("");
         de1.setDessert("");
         e1.setEntree("");
-        
-       
-         
+
         if (AppetizerNo.isSelected()) {
-            AppetizerField.setText("None");
+            AppetizerField.setText("N/A");
+            PriceFieldA.setText("");
+            aPrice = 0.0;
+
+        } else if (AppetizerYes.isSelected()) {
+            AppetizerField.setText(a1.getAppetizer());
+            PriceFieldA.setText("$" + a1.getPrice());
+            aPrice = Double.parseDouble(a1.getPrice());
         }
-        else if (AppetizerYes.isSelected()) {
-        AppetizerField.setText(a1.getAppetizer());
-        }
-        
+
         if (SidesNo.isSelected()) {
-            SidesField.setText("None");
-        }
-        else if (SidesYes.isSelected()) {
+            SidesField.setText("N/A");
+            PriceFieldS.setText("");
+            sPrice = 0.0;
+        } else if (SidesYes.isSelected()) {
             SidesField.setText(s1.getSide());
+            PriceFieldS.setText("$" + s1.getPrice());
+            sPrice = Double.parseDouble(s1.getPrice());
         }
-        
+
         if (EntreeNo.isSelected()) {
-            EntreeField.setText("None");
-        }
-        else if (EntreeYes.isSelected()) {
+            EntreeField.setText("N/A");
+            PriceFieldE.setText("");
+            ePrice = 0.0;
+        } else if (EntreeYes.isSelected()) {
             EntreeField.setText(e1.getEntree());
+            PriceFieldE.setText("$" + e1.getPrice());
+            ePrice = Double.parseDouble(e1.getPrice());
         }
-        
+
         if (DessertNo.isSelected()) {
-            DessertField.setText("None");
-        }
-        else if (DessertYes.isSelected()) {
+            DessertField.setText("N/A");
+            PriceFieldD.setText("");
+            dePrice = 0.0;
+        } else if (DessertYes.isSelected()) {
             DessertField.setText(de1.getDessert());
+            PriceFieldDe.setText("$" + de1.getPrice());
+            dePrice = Double.parseDouble(de1.getPrice());
         }
-        
+
         if (DrinkNo.isSelected()) {
-            DrinkField.setText("None");
-        }
-        else if (DrinkYes.isSelected()) {
+            DrinkField.setText("N/A");
+            PriceFieldD.setText("");
+            dPrice = 0.0;
+        } else if (DrinkYes.isSelected()) {
             if (UnderAge.isSelected()) {
-            DrinkField.setText("Soft Drinks");
-        }
-            else {
+                DrinkField.setText("Soft Drinks");
+                PriceFieldD.setText("$1.86");
+                dPrice = 1.86;
+
+            } else {
                 DrinkField.setText(d1.getAlchohol());
+                PriceFieldD.setText("$" + d1.getPrice());
+                dPrice = Double.parseDouble(d1.getPrice());
             }
         }
-        
-        
-       
-        
+        sum = sPrice + aPrice + ePrice + dPrice + dePrice;
+        SumField.setText("$" + Double.toString(sum));
+
+
     }                                               
-
-    private void DessertFieldActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
-    }                                            
-
-    private void LactoseYesActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
-    }                                          
-
-    private void LactoseNoActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        
-    }                                         
-
-    private void NutYesActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        // TODO add your handling code here:
-    }                                      
-
-    private void AppetizerYesActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        
-    }                                            
 
     private void ClearButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
         GenderGroup.clearSelection();
@@ -756,38 +700,56 @@ public class CustomerGUI extends javax.swing.JFrame{
         SidesField.setText("");
         EntreeField.setText("");
         DessertField.setText("");
-        PriceField.setText("");
+        PriceFieldD.setText("");
+        PriceFieldDe.setText("");
+        PriceFieldA.setText("");
+        PriceFieldS.setText("");
+        PriceFieldE.setText("");
+        TimestampField.setText("");
+        sPrice = 0.0;
+        dPrice = 0.0;
+        aPrice = 0.0;
+        ePrice = 0.0;
+        dePrice = 0.0;
+        sum = 0.0;
+        SumField.setText("");
     }                                           
 
-    private void AppetizerNoActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        String time = "";
+        try {
+            time = getCurrentTime("http://api.timezonedb.com/v2/get-time-zone?key=U5M24CM8VUSS&format=json&by=zone&zone=America/Indiana/Indianapolis");
+        } catch (Exception ex) {
+        }
+        time = time.substring(274, time.length() - 2);
 
+        TimestampField.setText(time);
         
-    }                                           
-
-    private void SidesNoActionPerformed(java.awt.event.ActionEvent evt) {                                        
         
-    }                                       
-
-    private void EntreeNoActionPerformed(java.awt.event.ActionEvent evt) {                                         
         
-    }                                        
-
-    private void DessertNoActionPerformed(java.awt.event.ActionEvent evt) {                                          
         
-    }                                         
-
-    private void DrinkNoActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        name = name + (Integer.toString(i));
         
-    }                                       
-
-    private void UnderAgeActionPerformed(java.awt.event.ActionEvent evt) {                                         
-      
-    }                                        
-
-   
+        try (PrintWriter out = new PrintWriter(name)) {
+          
+            out.println("----------------YOUR RECEIPT------------------");
+            out.println(TimestampField.getText());
+            out.println(AppetizerField.getText()+" "+PriceFieldA.getText());
+            out.println(DrinkField.getText()+" "+PriceFieldD.getText());
+            out.println(EntreeField.getText()+" "+PriceFieldE.getText());
+            out.println(DessertField.getText()+" "+PriceFieldDe.getText());
+            out.println(SidesField.getText()+" "+PriceFieldS.getText());
+            out.println("----------------------------------------------");
             
+           
+        }
+        catch(Exception e){
+        System.out.println("Error");
+        }
+        name = name.substring(0,name.length() - 1);
+        i++;
+    }                                          
 
-    
     /**
      * @param args the command line arguments
      */
@@ -856,13 +818,19 @@ public class CustomerGUI extends javax.swing.JFrame{
     private javax.swing.JRadioButton NutYes;
     private javax.swing.JRadioButton Other;
     private javax.swing.JRadioButton OverAge;
-    private javax.swing.JTextField PriceField;
+    private javax.swing.JTextField PriceFieldA;
+    private javax.swing.JTextField PriceFieldD;
+    private javax.swing.JTextField PriceFieldDe;
+    private javax.swing.JTextField PriceFieldE;
+    private javax.swing.JTextField PriceFieldS;
     private javax.swing.JButton RandomizeButton;
     private javax.swing.JButton SaveButton;
     private javax.swing.JTextField SidesField;
     private javax.swing.ButtonGroup SidesGroup;
     private javax.swing.JRadioButton SidesNo;
     private javax.swing.JRadioButton SidesYes;
+    private javax.swing.JTextField SumField;
+    private javax.swing.JTextField TimestampField;
     private javax.swing.JRadioButton UnderAge;
     private javax.swing.ButtonGroup VeganGroup;
     private javax.swing.JRadioButton VeganNo;
@@ -895,6 +863,5 @@ public class CustomerGUI extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration                   
 }
