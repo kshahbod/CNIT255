@@ -10,28 +10,20 @@ package project;
  * @author kaevan
  */
 public class Meal {
-    protected int price;
+    protected String price;
     protected boolean glutenFree;
     protected boolean vegan;
     protected boolean vegetarian;
-    protected String allergyContents;
 
-    public Meal(int price, boolean glutenFree, boolean vegan, boolean vegetarian, String allergyContents) {
+    public Meal(String price, boolean glutenFree, boolean vegan, boolean vegetarian) {
         this.price = price;
         this.glutenFree = glutenFree;
         this.vegan = vegan;
         this.vegetarian = vegetarian;
-        this.allergyContents = allergyContents;
     }
     
 
-    public int getPrice(){
-        return price;
-    }
-
-    public void setPrice(int price){
-        this.price = price;
-    }
+  
 
     public boolean getGluten(){
         return glutenFree;
@@ -53,10 +45,5 @@ public class Meal {
     public void setVegetarian(boolean vegetarian){
         this.vegetarian = vegetarian;
     }
-    public String allergyContents(){
-        return allergyContents;
-    }
-    public void getAllergyContents(String allergyContents){
-        this.allergyContents = allergyContents;
-    }
+ 
 }
