@@ -10,56 +10,34 @@ package project;
  * @author kaevan
  */
 
-import java.time.*;
-import java.time.temporal.ChronoUnit;
 
 
-public class Guest extends Business{
-    protected String gender;
-    protected String age;
-    protected boolean lactose;
+
+public class Guest extends Person{
     
-    public LocalDate date = LocalDate.now();
-    public LocalTime time = LocalTime.now().truncatedTo(ChronoUnit.MINUTES);
-
-
-    public String getGender() {
-        return gender;
+    String numberGuests;
+    String accomodations;
+    
+    public Guest(String numberGuests, String accomodations, String gender, String name, String age) {
+        super(gender, name, age);
+        this.numberGuests = numberGuests;
+        this.accomodations = accomodations;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public String getNumberGuests() {
+        return numberGuests;
     }
 
-    public String getAge() {
-        return age;
+    public void setNumberGuests(String numberGuests) {
+        this.numberGuests = numberGuests;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public String getAccomodations() {
+        return accomodations;
     }
 
-    public boolean getLactose() {
-        return lactose;
+    public void setAccomodations(String accomodations) {
+        this.accomodations = accomodations;
     }
 
-    public void setLactose(boolean lactose) {
-        this.lactose = lactose;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }
 }
