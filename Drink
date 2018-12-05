@@ -17,25 +17,27 @@ import java.util.Random;
 
 
 
-public class Drink {
-    String alchohol;
-    String price; 
+public class Drink extends Meal{
+    String drink;
 
+    public Drink(String drink, String price, boolean glutenFree, boolean vegan, boolean vegetarian) {
+        super(price, glutenFree, vegan, vegetarian);
+        this.drink = drink;
+    }
+
+    
     public void setPrice(String price) {
         this.price = price;
     }
 
-    public Drink(String alchohol) {
-        this.alchohol = alchohol;
+
+    public String getDrink() {
+        return drink;
     }
 
-    public String getAlchohol() {
-        return alchohol;
-    }
-
-    public void setAlchohol(String alchohol) {
+    public void setDrink(String drink) {
          try {
-            this.alchohol = generateAlchohol();
+            this.drink = generateDrink();
         } catch (Exception e) {
             System.out.println("Error occurred");
         }
@@ -48,7 +50,7 @@ public class Drink {
     ArrayList<String> drinkPriceArray;
     int random;
     
-    public String generateAlchohol() throws Exception{
+    public String generateDrink() throws Exception{
     File file0 = new File("/Users/kaevan/NetBeansProjects/Project/Drink.txt");
         BufferedReader br = new BufferedReader(new FileReader(file0));
         ArrayList<String> drinkArray = new ArrayList<String>();
