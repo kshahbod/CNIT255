@@ -15,19 +15,20 @@ import java.util.Random;
  *
  * @author takahideiwai
  */
-public class Sides {
+public class Sides extends Meal{
 
     String side;
-    String price;
+    
+    public Sides (String side, String price, boolean glutenFree, boolean vegan, boolean vegetarian) {
+        super(price, glutenFree, vegan, vegetarian);
+        this.side = side;
+    }
+
 
     public void setPrice(String price) {
         this.price = price;
     }
     
-
-    public Sides(String side) {
-        this.side = side;
-    }
 
     public String getSide() {
         return side;
