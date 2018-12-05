@@ -7,18 +7,20 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Appetizer {
+public class Appetizer extends Meal{
     
     String appetizer;
-    String price;
+    
+    public Appetizer(String appetizer, String price, boolean glutenFree, boolean vegan, boolean vegetarian) {
+        super(price, glutenFree, vegan, vegetarian);
+        this.appetizer = appetizer;
+    }
+
 
     public void setPrice(String price) {
         this.price = price;
     }
 
-    public Appetizer(String appetizer) {
-        this.appetizer = appetizer;
-    }
 
     public String getAppetizer() {
         return appetizer;
@@ -52,8 +54,8 @@ public class Appetizer {
 
         while ((appetizerString = br.readLine()) != null) {
 
-            appetizerPrice = appetizerString.substring(appetizerString.length() - 4, appetizerString.length());
-            appetizerString = appetizerString.substring(0, appetizerString.length() - 5);
+            appetizerPrice = appetizerString.substring(appetizerString.length() - 5, appetizerString.length());
+            appetizerString = appetizerString.substring(0, appetizerString.length() - 6);
             appetizerArray.add(appetizerString);
             appetizerPriceArray.add(appetizerPrice);
         }
