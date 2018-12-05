@@ -6,16 +6,16 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Dessert {
+public class Dessert extends Meal{
     String dessertItem;
-    String price;
 
+    public Dessert(String dessertItem, String price, boolean glutenFree, boolean vegan, boolean vegetarian) {
+        super(price, glutenFree, vegan, vegetarian);
+        this.dessertItem = dessertItem; 
+    }
+        
     public void setPrice(String price) {
         this.price = price;
-    }
-
-    public Dessert (String dessertItem) {
-        this.dessertItem = dessertItem;
     }
 
     public void setDessert(String dessertItem){
