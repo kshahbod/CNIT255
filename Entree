@@ -6,17 +6,18 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Entree {
+public class Entree extends Meal {
     String entreeItem;
-    String price;
+    
+    public Entree(String entreeItem, String price, boolean glutenFree, boolean vegan, boolean vegetarian) {
+        super(price, glutenFree, vegan, vegetarian);
+        this.entreeItem = entreeItem;
+    }
 
     public void setEntreeItem(String entreeItem) {
         this.entreeItem = entreeItem;
     }
 
-    public Entree (String entreeItem) {
-        this.entreeItem = entreeItem;
-    }
 
     public void setEntree(String entreeItem){
         try {
@@ -50,8 +51,8 @@ public class Entree {
 
         while ((entreeString = br.readLine()) != null) {
 
-            entreePrice = entreeString.substring(entreeString.length() - 4, entreeString.length());
-            entreeString = entreeString.substring(0, entreeString.length() - 5);
+            entreePrice = entreeString.substring(entreeString.length() - 5, entreeString.length());
+            entreeString = entreeString.substring(0, entreeString.length() - 6);
             entreeArray.add(entreeString);
             entreePriceArray.add(entreePrice);
         }
